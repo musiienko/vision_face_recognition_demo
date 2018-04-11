@@ -6,7 +6,7 @@
 //  Copyright © 2018 Inoxoft. All rights reserved.
 //
 
-import CoreGraphics
+import DelaunaySwift
 
 extension CGRect {
 
@@ -25,6 +25,31 @@ extension CGPoint {
     func scaled(with rect: CGRect) -> CGPoint {
         let x = self.x * rect.width + rect.origin.x
         let y = self.y * rect.height + rect.origin.y
+        return CGPoint(x: x, y: y)
+    }
+}
+
+extension Triangle {
+    func toPath() -> UIBezierPath {
+
+        let path = UIBezierPath()
+        let point1 = vertex1.pointValue()
+        let point2 = vertex2.pointValue()
+        let point3 = vertex3.pointValue()
+
+        path.move(to: point1)
+        path.addLine(to: point2)
+        path.addLine(to: point3)
+        path.addLine(to: point1)
+
+        path.close()
+
+        return path
+    }
+}
+
+extension Vertex {
+    func pointValue() -> CGPoint {
         return CGPoint(x: x, y: y)
     }
 }

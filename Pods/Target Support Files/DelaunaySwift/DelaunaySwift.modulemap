@@ -1,0 +1,6 @@
+framework module DelaunaySwift {
+  umbrella header "DelaunaySwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

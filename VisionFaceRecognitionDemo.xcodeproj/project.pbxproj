@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C79109C8BD7D8C739FFC58BA /* Pods_VisionFaceRecognitionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9F8DA8F5AB4F510197664C /* Pods_VisionFaceRecognitionDemo.framework */; };
 		C9B626E9207E56A000C621B3 /* FaceShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B626E8207E56A000C621B3 /* FaceShapeLayer.swift */; };
 		C9B626EB207E5ED500C621B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B626EA207E5ED500C621B3 /* Extensions.swift */; };
 		C9CBD713207DFDC300AFF8FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CBD712207DFDC300AFF8FD /* AppDelegate.swift */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F815E43CFC2E5DA200F8DB6 /* Pods-VisionFaceRecognitionDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisionFaceRecognitionDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VisionFaceRecognitionDemo/Pods-VisionFaceRecognitionDemo.release.xcconfig"; sourceTree = "<group>"; };
+		9F9F8DA8F5AB4F510197664C /* Pods_VisionFaceRecognitionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VisionFaceRecognitionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B626E8207E56A000C621B3 /* FaceShapeLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceShapeLayer.swift; sourceTree = "<group>"; };
 		C9B626EA207E5ED500C621B3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C9CBD70F207DFDC300AFF8FD /* VisionFaceRecognitionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionFaceRecognitionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +31,7 @@
 		C9CBD71C207DFDC300AFF8FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9CBD71E207DFDC400AFF8FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9CBD724207E00E500AFF8FD /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		DB63D255EADA001423B0DA31 /* Pods-VisionFaceRecognitionDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisionFaceRecognitionDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VisionFaceRecognitionDemo/Pods-VisionFaceRecognitionDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +39,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C79109C8BD7D8C739FFC58BA /* Pods_VisionFaceRecognitionDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		917CD2784CCC5F455699065B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB63D255EADA001423B0DA31 /* Pods-VisionFaceRecognitionDemo.debug.xcconfig */,
+				2F815E43CFC2E5DA200F8DB6 /* Pods-VisionFaceRecognitionDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C9CBD706207DFDC300AFF8FD = {
 			isa = PBXGroup;
 			children = (
 				C9CBD711207DFDC300AFF8FD /* VisionFaceRecognitionDemo */,
 				C9CBD710207DFDC300AFF8FD /* Products */,
+				917CD2784CCC5F455699065B /* Pods */,
+				EDD88DF9F6A6AC9C88599A8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +89,14 @@
 			path = VisionFaceRecognitionDemo;
 			sourceTree = "<group>";
 		};
+		EDD88DF9F6A6AC9C88599A8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F9F8DA8F5AB4F510197664C /* Pods_VisionFaceRecognitionDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9CBD721207DFDC400AFF8FD /* Build configuration list for PBXNativeTarget "VisionFaceRecognitionDemo" */;
 			buildPhases = (
+				00847BE32A1106AA8AFEF47D /* [CP] Check Pods Manifest.lock */,
 				C9CBD70B207DFDC300AFF8FD /* Sources */,
 				C9CBD70C207DFDC300AFF8FD /* Frameworks */,
 				C9CBD70D207DFDC300AFF8FD /* Resources */,
+				C66C603ECAF6480CE44B1BFB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -138,6 +164,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00847BE32A1106AA8AFEF47D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VisionFaceRecognitionDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C66C603ECAF6480CE44B1BFB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VisionFaceRecognitionDemo/Pods-VisionFaceRecognitionDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DelaunaySwift/DelaunaySwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DelaunaySwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VisionFaceRecognitionDemo/Pods-VisionFaceRecognitionDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C9CBD70B207DFDC300AFF8FD /* Sources */ = {
@@ -290,15 +355,13 @@
 		};
 		C9CBD722207DFDC400AFF8FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB63D255EADA001423B0DA31 /* Pods-VisionFaceRecognitionDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PBH378P6HJ;
 				INFOPLIST_FILE = "$(SRCROOT)/VisionFaceRecognitionDemo/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.inoxoft.vision-face-recognition-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -308,15 +371,13 @@
 		};
 		C9CBD723207DFDC400AFF8FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F815E43CFC2E5DA200F8DB6 /* Pods-VisionFaceRecognitionDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PBH378P6HJ;
 				INFOPLIST_FILE = "$(SRCROOT)/VisionFaceRecognitionDemo/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.inoxoft.vision-face-recognition-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

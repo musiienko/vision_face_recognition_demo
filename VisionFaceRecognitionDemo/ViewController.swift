@@ -9,10 +9,16 @@
 import UIKit
 import Vision
 import AVFoundation
+import DelaunaySwift
 
 class ViewController: UIViewController {
 
+    enum ViewType: String {
+        case face, triangle
+    }
+
     @IBOutlet private weak var fpsLabel: UILabel!
+    @IBOutlet private weak var typeButton: UIButton!
 
     private let requestHandler = VNSequenceRequestHandler()
     private let faceBoxLayer = FaceShapeLayer.default
@@ -26,12 +32,25 @@ class ViewController: UIViewController {
 
     private var fps = 0
 
+    private var type = ViewType.face
+
     private var faceRect: CGRect = .zero {
-        didSet { drawFacesBox() }
+        didSet {
+            guard faceRect != .zero else { return }
+            drawFacesBox()
+        }
     }
 
     private var landmarks: VNFaceLandmarks2D! {
-        didSet { drawFaceLandmarks() }
+        didSet {
+            guard faceRect != .zero else { return }
+            switch type {
+            case .face:
+                drawFaceLandmarks()
+            case .triangle:
+                drawTriangles()
+            }
+        }
     }
 
     override func viewDidLoad() {
@@ -41,6 +60,19 @@ class ViewController: UIViewController {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             self?.updateFPS()
         }
+        configureButton()
+    }
+
+    private func configureButton() {
+        typeButton.setTitle(type.rawValue.capitalized, for: .normal)
+    }
+
+    @IBAction private func switchType() {
+        switch type {
+        case .face: type = .triangle
+        case .triangle: type = .face
+        }
+        configureButton()
     }
 
     private func updateFPS() {
@@ -74,9 +106,22 @@ extension ViewController {
 
     private func drawFacesBox() {
         faceBoxLayer.removeAllSublayers()
-        if faceRect != .zero {
-            faceBoxLayer.addBox(with: UIBezierPath(rect: faceRect))
+        faceBoxLayer.addBox(with: UIBezierPath(rect: faceRect))
+    }
+
+    private func drawTriangles() {
+        faceBoxLayer.removeAllSublayers(exceptFirst: 1) // leaving box
+        guard
+            let points = self.landmarks.allPoints?.normalizedPoints.map ({ $0.scaled(with: faceRect) }),
+            !points.isEmpty
+        else {
+            return
         }
+
+        let vertexs = points.map { Vertex(x: Double($0.x), y: Double($0.y)) }.dropLast()
+        let triangles = Delaunay().triangulate(Array(vertexs))
+        let paths = triangles.map { $0.toPath() }
+        paths.forEach { faceBoxLayer.addLine(with: $0) }
     }
 
     private func drawFaceLandmarks() {
